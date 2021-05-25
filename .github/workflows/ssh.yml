@@ -25,5 +25,7 @@ jobs:
          statik -src=models -f
          sudo apt-get update
          sudo apt-get -y install gcc-arm-linux-gnueabihf libc6-dev-armhf-cross
-         chmod +x ./build.sh
-         ./build.sh -r b
+     - name: Setup Debug Session
+       uses: actions/checkout@v2
+     - name: Setup Debug Session
+       uses: csexton/debugger-action@master
