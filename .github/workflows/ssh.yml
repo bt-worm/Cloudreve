@@ -24,6 +24,7 @@ jobs:
          export PATH=$PATH:~/go/bin/
          statik -src=models -f
          sudo apt-get update
+         sudo apt-get -y install gcc-arm-linux-gnueabihf libc6-dev-armhf-cross
 
      - name: Setup Debug Session
        uses: actions/checkout@v2
