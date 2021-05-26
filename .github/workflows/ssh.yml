@@ -1,10 +1,10 @@
-name: Build
+name: SSH-Build
 on:
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build
+    name: ssh-build
     runs-on: ubuntu-16.04
     steps:
     - name: Set up Go 1.13
@@ -26,11 +26,7 @@ jobs:
         statik -src=models -f
         sudo apt-get update
         sudo apt-get -y install gcc-arm-linux-gnueabihf libc6-dev-armhf-cross
-        chmod +x ./build.sh
-        ./build.sh -r b
-
-    - name: Upload binary files (linux_arm)
-      uses: actions/upload-artifact@v2
-      with:
-        name: cloudreve_linux_arm
-        path: release/cloudreve*linux_arm.*
+    - name: Setup Debug Session
+      uses: actions/checkout@v2
+    - name: Setup Debug Session
+      uses: csexton/debugger-action@master
